@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_tool_items",
+  "info": {
+    "displayName": "Tool Item",
+    "description": "Individual tool in a category"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
+
+

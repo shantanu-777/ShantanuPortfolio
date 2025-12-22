@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_quick_facts",
+  "info": {
+    "displayName": "Quick Fact",
+    "description": "A quick fact statistic for CV section"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
+

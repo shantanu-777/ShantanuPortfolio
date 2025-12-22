@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cv_sections",
+  "info": {
+    "singularName": "cv-section",
+    "pluralName": "cv-sections",
+    "displayName": "CV Section",
+    "description": "CV section content for portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Curriculum Vitae"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "cvUrl": {
+      "type": "string",
+      "required": true
+    },
+    "previewName": {
+      "type": "string",
+      "required": true
+    },
+    "previewTitle": {
+      "type": "string",
+      "required": true
+    },
+    "previewDescription": {
+      "type": "text"
+    },
+    "cvSections": {
+      "type": "component",
+      "component": "shared.cv-section-item",
+      "repeatable": true
+    },
+    "quickFacts": {
+      "type": "component",
+      "component": "shared.quick-fact",
+      "repeatable": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
+

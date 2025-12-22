@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_highlights",
+  "info": {
+    "displayName": "Highlight",
+    "description": "Professional highlight item"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}
+
+

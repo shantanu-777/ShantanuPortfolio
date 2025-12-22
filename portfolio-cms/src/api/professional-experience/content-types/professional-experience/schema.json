@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "professional_experiences",
+  "info": {
+    "singularName": "professional-experience",
+    "pluralName": "professional-experiences",
+    "displayName": "Professional Experience",
+    "description": "Professional work experience and journey"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "isCurrent": {
+      "type": "boolean",
+      "default": false
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "technologies": {
+      "type": "json"
+    }
+  }
+}
+
+

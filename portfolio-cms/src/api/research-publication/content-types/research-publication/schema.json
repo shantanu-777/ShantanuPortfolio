@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "research_publications",
+  "info": {
+    "singularName": "research-publication",
+    "pluralName": "research-publications",
+    "displayName": "Research Publication",
+    "description": "Research papers and publications"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "publisher": {
+      "type": "string",
+      "required": true
+    },
+    "publicationDate": {
+      "type": "date",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "doi": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "json"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+
+

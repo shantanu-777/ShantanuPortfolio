@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_cv_section_items",
+  "info": {
+    "displayName": "CV Section Item",
+    "description": "A section item in the CV preview"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
+

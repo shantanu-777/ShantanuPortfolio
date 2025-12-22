@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tool_categories",
+  "info": {
+    "singularName": "tool-category",
+    "pluralName": "tool-categories",
+    "displayName": "Tool Category",
+    "description": "Tools and technologies organized by category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "tools": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tool-item"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+
+

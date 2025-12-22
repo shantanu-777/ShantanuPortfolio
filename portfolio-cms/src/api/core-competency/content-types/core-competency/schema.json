@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "core_competencies",
+  "info": {
+    "singularName": "core-competency",
+    "pluralName": "core-competencies",
+    "displayName": "Core Competency",
+    "description": "Core skills and competencies"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "certifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::certification.certification",
+      "mappedBy": "competency"
+    }
+  }
+}
+
+
