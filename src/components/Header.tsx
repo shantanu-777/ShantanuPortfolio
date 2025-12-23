@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { ThemeToggle } from './ThemeToggle';
 import { Badge } from './ui/badge';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
 import { useHero } from '../hooks/useStrapiData';
 import { STRAPI_CONFIG } from '../config/strapi';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
