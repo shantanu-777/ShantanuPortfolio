@@ -32,6 +32,10 @@
     "description": {
       "type": "text"
     },
+    "current": {
+      "type": "boolean",
+      "default": false
+    },
     "order": {
       "type": "integer",
       "default": 0

@@ -118,6 +118,7 @@ export interface Education {
   graduationDate?: string;
   gpa?: string;
   description?: string;
+  current?: boolean;
   order: number;
 }
 
@@ -291,7 +292,26 @@ export const strapiService = {
       if (!response.data || !Array.isArray(response.data)) {
         return [];
       }
-      return extractStrapiArray<Education>(response.data);
+      const educations = extractStrapiArray<Education>(response.data);
+      
+      // Sort: current first, then by graduationDate descending (most recent first)
+      return educations.sort((a, b) => {
+        // Current entries first
+        if (a.current && !b.current) return -1;
+        if (!a.current && b.current) return 1;
+        
+        // Then sort by graduationDate descending (most recent first)
+        if (a.graduationDate && b.graduationDate) {
+          const dateA = new Date(a.graduationDate).getTime();
+          const dateB = new Date(b.graduationDate).getTime();
+          return dateB - dateA; // Descending order
+        }
+        if (a.graduationDate) return -1;
+        if (b.graduationDate) return 1;
+        
+        // Finally by order
+        return b.order - a.order;
+      });
     } catch (error) {
       console.error('Error fetching educations:', error);
       return [];

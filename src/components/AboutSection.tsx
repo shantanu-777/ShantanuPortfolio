@@ -512,15 +512,24 @@ export function AboutSection() {
               <div className="space-y-6">
                 {educations.length > 0 ? (
                   educations.map((edu, index) => (
-                    <div key={index}>
-                      <h4 className="text-lg mb-1 font-semibold">{edu.degree}</h4>
+                    <div key={index} className="border-l-2 border-primary/20 pl-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h4 className="text-lg font-semibold">{edu.degree}</h4>
+                        {edu.current && (
+                          <Badge variant="default" className="text-xs">Current</Badge>
+                        )}
+                      </div>
                       <p className="text-sm text-muted-foreground mb-1">
                         {edu.institution}{edu.department ? `, ${edu.department}` : ''}
                       </p>
                       {edu.graduationDate && (
                         <p className="text-sm text-muted-foreground mb-1">
-                          Graduated: {new Date(edu.graduationDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                          {edu.current ? 'Expected graduation: ' : 'Graduated: '}
+                          {new Date(edu.graduationDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                         </p>
+                      )}
+                      {edu.current && !edu.graduationDate && (
+                        <p className="text-sm text-muted-foreground mb-1">Ongoing</p>
                       )}
                       {edu.gpa && (
                         <p className="text-sm text-muted-foreground">GPA: {edu.gpa}</p>
