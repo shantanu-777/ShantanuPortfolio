@@ -22,7 +22,8 @@ export default [
       origin: [
         'http://localhost:3000',
         'http://localhost:5173',
-        'https://shantanu-portfolio-beta-five.vercel.app',
+        'https://shantanumodhave.vercel.app',
+        'https://shantanu-portfolio-beta-five.vercel.app', // Old domain (keep for transition)
         'https://shantanuportfolio.onrender.com',
       ],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
