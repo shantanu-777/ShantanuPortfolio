@@ -64,7 +64,10 @@ export function Header({ activeSection }: HeaderProps) {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Use requestAnimationFrame for smoother scrolling
+      requestAnimationFrame(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     }
     setIsMobileMenuOpen(false);
   };

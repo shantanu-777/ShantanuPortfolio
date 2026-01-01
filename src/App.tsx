@@ -7,28 +7,59 @@ import { ProjectsSection } from './components/ProjectsSection';
 import { CVSection } from './components/CVSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { strapiService } from './services/strapi';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
 
+  // Prefetch all data on initial load for instant navigation
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'cv', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+    // Prefetch all data in parallel to cache it
+    Promise.all([
+      strapiService.getHero(),
+      strapiService.getAbout(),
+      strapiService.getProjects(),
+      strapiService.getProfessionalExperiences(),
+      strapiService.getEducations(),
+      strapiService.getCoreCompetencies(),
+      strapiService.getToolCategories(),
+      strapiService.getAchievements(),
+      strapiService.getContactInformation(),
+      strapiService.getSoftSkills(),
+      strapiService.getResearchPublications(),
+      strapiService.getCVSection(),
+    ]).catch((error) => {
+      console.error('Error prefetching data:', error);
+    });
+  }, []);
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+  useEffect(() => {
+    // Throttle scroll handler for better performance
+    let ticking = false;
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = ['home', 'about', 'projects', 'cv', 'contact'];
+          const scrollPosition = window.scrollY + 100;
+
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(section);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
